@@ -76,51 +76,66 @@ body {
     100% { background-position: 500px 500px; }
 }
 
-/* Creation Area */
-.creation-area {
-    max-width: 600px;
+/* Feature Area */
+.feature-area {
+    max-width: 700px;
     width: 90%;
-    text-align: center;
     padding: 20px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     margin-top: 20px;
+    text-align: center;
 }
 
-.creation-area h1 {
+.feature-area h1 {
     font-size: clamp(1.5rem, 4vw, 2rem);
     text-shadow: 0 0 10px #ff00ff;
     margin-bottom: 20px;
 }
 
+.input-section {
+    margin-bottom: 20px;
+}
+
 #summary-input {
     width: 100%;
-    height: 100px;
+    height: 120px;
     background: #1e1e5f;
     color: #fff;
     border: 1px solid #00ffff;
     border-radius: 5px;
-    margin-bottom: 15px;
     box-sizing: border-box;
+    padding: 10px;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-#generate-btn, #search-btn {
+#search-btn, #generate-btn {
     background: #ff00ff;
     border: 1px solid #00ffff;
-    padding: 8px 15px;
+    padding: 10px 20px;
     color: #fff;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .output {
-    margin-top: 20px;
     text-align: left;
+}
+
+.output-block {
+    margin: 20px 0;
+}
+
+.output-block h2 {
+    font-size: 1.2rem;
+    color: #00ffff;
+    margin-bottom: 10px;
 }
 
 #animation-canvas {
@@ -128,8 +143,8 @@ body {
     max-width: 320px;
     height: auto;
     border: 1px solid #00ffff;
-    margin: 10px auto;
     display: block;
+    margin: 0 auto;
 }
 
 #export-btn {
@@ -137,8 +152,11 @@ body {
     color: #0a0a23;
     padding: 10px 20px;
     border: none;
-    margin-top: 15px;
     cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* Chatbot (Side) */
@@ -180,6 +198,7 @@ body {
     border: 1px solid #00ffff;
     border-radius: 5px;
     margin: 10px 0;
+    padding: 5px;
 }
 
 #chatbot-ask {
@@ -188,11 +207,6 @@ body {
     padding: 8px 15px;
     color: #fff;
     cursor: pointer;
-}
-
-@keyframes orbPulse {
-    0%, 100% { box-shadow: 0 0 15px #ff00ff; }
-    50% { box-shadow: 0 0 25px #00ffff; }
 }
 
 /* Donation */
@@ -225,13 +239,13 @@ footer a { color: #ff00ff; }
 
 /* Device Compatibility */
 @media (max-width: 768px) {
-    .creation-area { margin-top: 10px; }
+    .feature-area { margin-top: 10px; }
     .chatbot { top: 10%; right: 10px; }
     .donation { bottom: 60px; right: 10px; }
+    .buttons { flex-direction: column; gap: 10px; }
 }
 
 @media (max-width: 480px) {
-    #summary-input { height: 80px; }
-    .buttons { flex-direction: column; gap: 5px; }
-    .chatbot-box { width: 90%; }
+    #summary-input { height: 100px; }
+    .output-block h2 { font-size: 1rem; }
 }
