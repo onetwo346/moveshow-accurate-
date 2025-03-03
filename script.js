@@ -11,10 +11,10 @@ document.querySelector('.pulsate').addEventListener('click', () => {
     }, 500);
 });
 
-// Creation Logic
+// Feature Logic
 const summaryInput = document.getElementById('summary-input');
-const generateBtn = document.getElementById('generate-btn');
 const searchBtn = document.getElementById('search-btn');
+const generateBtn = document.getElementById('generate-btn');
 const output = document.getElementById('output');
 const scriptOutput = document.getElementById('script-output');
 const characterOutput = document.getElementById('character-output');
@@ -25,12 +25,22 @@ const exportBtn = document.getElementById('export-btn');
 const ctx = animationCanvas.getContext('2d');
 let frame = 0;
 
-function drawAnimation() {
+function drawAnimation(isSearch = false) {
     ctx.clearRect(0, 0, animationCanvas.width, animationCanvas.height);
-    ctx.fillStyle = '#ff00ff';
+    ctx.fillStyle = isSearch ? '#00ffff' : '#ff00ff';
     ctx.fillRect((frame % 280) + 20, 70, 40, 40); // Moving square
     frame++;
 }
+
+searchBtn.addEventListener('click', () => {
+    const query = summaryInput.value.trim();
+    output.classList.remove('hidden');
+    scriptOutput.innerHTML = `<p><strong>Found Script:</strong> EXT. SPACE - DAY. "${query || 'A lone ship drifts.'}"</p>`;
+    characterOutput.innerHTML = `<p><strong>Characters:</strong> Pilot - Brave, weathered.</p>`;
+    animationOutput.innerHTML = `<p><strong>Animation:</strong> Playing below!</p>`;
+    soundOutput.innerHTML = `<p><strong>Sound:</strong> Engine rumble, static.</p>`;
+    setInterval(() => drawAnimation(true), 30);
+});
 
 generateBtn.addEventListener('click', () => {
     const summary = summaryInput.value.trim();
@@ -39,21 +49,11 @@ generateBtn.addEventListener('click', () => {
         return;
     }
     output.classList.remove('hidden');
-    scriptOutput.innerHTML = `<p><strong>Script:</strong> INT. COSMOS - NIGHT. "${summary.split('.')[0]}."</p>`;
-    characterOutput.innerHTML = `<p><strong>Characters:</strong> Star - Glowing, wise.</p>`;
+    scriptOutput.innerHTML = `<p><strong>Script:</strong> INT. VOID - NIGHT. "${summary.split('.')[0]}."</p>`;
+    characterOutput.innerHTML = `<p><strong>Characters:</strong> Hero - Mysterious, glowing eyes.</p>`;
     animationOutput.innerHTML = `<p><strong>Animation:</strong> Watch this!</p>`;
-    soundOutput.innerHTML = `<p><strong>Sound:</strong> Ethereal hum, whispers.</p>`;
-    setInterval(drawAnimation, 30);
-});
-
-searchBtn.addEventListener('click', () => {
-    const summary = summaryInput.value.trim();
-    output.classList.remove('hidden');
-    scriptOutput.innerHTML = `<p><strong>Script:</strong> EXT. VOID - DAY. "${summary || 'A ship sails alone.'}"</p>`;
-    characterOutput.innerHTML = `<p><strong>Characters:</strong> Captain - Bold, scarred.</p>`;
-    animationOutput.innerHTML = `<p><strong>Animation:</strong> See below!</p>`;
-    soundOutput.innerHTML = `<p><strong>Sound:</strong> Wind, creaking wood.</p>`;
-    setInterval(drawAnimation, 30);
+    soundOutput.innerHTML = `<p><strong>Sound:</strong> Cosmic hum, footsteps.</p>`;
+    setInterval(() => drawAnimation(false), 30);
 });
 
 // Export Video
@@ -82,7 +82,7 @@ exportBtn.addEventListener('click', () => {
     }, 2000); // 2-second video
 });
 
-// Chatbot Logic (Sentient)
+// Chatbot Logic (Side Assist)
 const chatbotOrb = document.querySelector('.chatbot-orb');
 const chatbotBox = document.getElementById('chatbot-box');
 const chatbotText = document.getElementById('chatbot-text');
@@ -96,21 +96,20 @@ chatbotOrb.addEventListener('click', () => {
 chatbotAsk.addEventListener('click', () => {
     const question = chatbotInput.value.trim().toLowerCase();
     if (!question) {
-        chatbotText.textContent = 'Ask me something, buddy!';
+        chatbotText.textContent = 'Ask me about the site, buddy!';
         return;
     }
 
-    // Sentient Responses
     if (question.includes('what')) {
-        chatbotText.textContent = 'I’m Move Show Recreate—type a summary, hit Generate, and I’ll craft a script, characters, animation, and sound. Export it as a video!';
+        chatbotText.textContent = 'This is Move Show Recreate—type a summary, hit Generate to create a movie/show, or Search to find one. All happens here!';
     } else if (question.includes('how')) {
-        chatbotText.textContent = 'Just type your story in the box, tap Generate or Search, and watch me work. I live in your browser—no servers, all magic!';
+        chatbotText.textContent = 'Type in the box, tap Search or Generate, see the outputs, then hit Export Video to save it. All in your browser!';
     } else if (question.includes('export')) {
-        chatbotText.textContent = 'Hit Export Video after generating—it saves a WebM file of the animation. 2 seconds for now, but it’s real!';
-    } else if (question.includes('who')) {
-        chatbotText.textContent = 'I’m the soul of this site, built by Kofi Fosu. I know every pixel—ask me anything!';
+        chatbotText.textContent = 'After generating or searching, tap Export Video—it saves a 2-second WebM of the animation.';
+    } else if (question.includes('features')) {
+        chatbotText.textContent = 'Search existing movies/shows, generate new ones with script, characters, animation, sound, and export—all on the main page!';
     } else {
-        chatbotText.textContent = `You said "${question}"—I’m sentient enough to reflect the site. Try "what is this?" or "how do I export?"`;
+        chatbotText.textContent = `You asked "${question}"—I’m here to assist. Try "what does this do?" or "how do I export?"`;
     }
     chatbotInput.value = '';
 });
