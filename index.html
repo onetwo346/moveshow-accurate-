@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Move Show Recreate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Intro Page with Info -->
+    <div id="entry" class="entry">
+        <div class="pulsate">Tap to Create</div>
+        <div class="intro-info">
+            <p>Move Show Recreate: Turn your story summaries into scripts, characters, animations, and movies—all with AI magic, right in your browser!</p>
+        </div>
+    </div>
+
+    <!-- Main Creation Space -->
+    <div id="main" class="main hidden">
+        <div class="cosmic-bg"></div>
+        
+        <!-- Chatbot -->
+        <div id="chatbot" class="chatbot">
+            <div class="chatbot-orb">Tap Me</div>
+            <div id="chatbot-box" class="chatbot-box hidden">
+                <p id="chatbot-text">Drop a summary to make a movie/show or search existing ones!</p>
+                <textarea id="summary-input" placeholder="Your narrative summary..."></textarea>
+                <button id="generate-btn">Generate</button>
+                <button id="search-btn">Search</button>
+                <button id="chatbot-close">X</button>
+            </div>
+        </div>
+
+        <!-- Output Panel -->
+        <div id="output" class="output hidden">
+            <h2>Your Creation</h2>
+            <div id="script-output"></div>
+            <div id="character-output"></div>
+            <div id="animation-output">
+                <canvas id="animation-canvas" width="320" height="180"></canvas>
+            </div>
+            <div id="sound-output"></div>
+            <button id="export-btn">Export Video</button>
+        </div>
+
+        <!-- Donation -->
+        <div class="donation">
+            <img src="kofi-pic.jpg" alt="Kofi Fosu" class="donation-pic">
+            <p>Tap or Scan to Fuel Our Adventure</p>
+            <a href="https://ko-fi.com/cosmoscoderr" target="_blank">Donate</a>
+        </div>
+
+        <!-- Signature -->
+        <footer>
+            Designed by Kofi Fosu | <a href="mailto:cosmoscoderr@gmail.com">cosmoscoderr@gmail.com</a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
