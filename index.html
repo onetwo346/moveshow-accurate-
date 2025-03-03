@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Move Show Recreate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Intro Page -->
+    <div id="entry" class="entry">
+        <div class="pulsate">Tap to Create</div>
+        <div class="intro-info">
+            <p>Move Show Recreate: Transform your story summaries into movies or shows—scripts, characters, animations, sound, all in your browser!</p>
+        </div>
+    </div>
+
+    <!-- Main Page -->
+    <div id="main" class="main hidden">
+        <div class="cosmic-bg"></div>
+
+        <!-- Feature Area -->
+        <div class="feature-area">
+            <h1>Move Show Recreate</h1>
+            
+            <!-- Input Section -->
+            <div class="input-section">
+                <textarea id="summary-input" placeholder="Enter a summary to generate or a term to search..."></textarea>
+                <div class="buttons">
+                    <button id="search-btn">Search Movie/Show</button>
+                    <button id="generate-btn">Generate Movie/Show</button>
+                </div>
+            </div>
+
+            <!-- Output Sections -->
+            <div id="output" class="output hidden">
+                <div class="output-block">
+                    <h2>Script</h2>
+                    <p id="script-output"></p>
+                </div>
+                <div class="output-block">
+                    <h2>Character Design</h2>
+                    <p id="character-output"></p>
+                </div>
+                <div class="output-block">
+                    <h2>Animation</h2>
+                    <canvas id="animation-canvas" width="320" height="180"></canvas>
+                </div>
+                <div class="output-block">
+                    <h2>Sound Design</h2>
+                    <p id="sound-output"></p>
+                </div>
+                <div class="output-block">
+                    <h2>Final Production</h2>
+                    <button id="export-btn">Export Video</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot (Side Assist) -->
+        <div id="chatbot" class="chatbot">
+            <div class="chatbot-orb">Tap Me</div>
+            <div id="chatbot-box" class="chatbot-box hidden">
+                <p id="chatbot-text">Hey! I’m here to help you navigate Move Show Recreate. Ask me anything about the site!</p>
+                <textarea id="chatbot-input" placeholder="Ask about the website..."></textarea>
+                <button id="chatbot-ask">Ask</button>
+            </div>
+        </div>
+
+        <!-- Donation -->
+        <div class="donation">
+            <img src="kofi-pic.jpg" alt="Kofi Fosu" class="donation-pic">
+            <p>Tap or Scan to Fuel Our Adventure</p>
+            <a href="https://ko-fi.com/cosmoscoderr" target="_blank">Donate</a>
+        </div>
+
+        <!-- Signature -->
+        <footer>
+            Designed by Kofi Fosu | <a href="mailto:cosmoscoderr@gmail.com">cosmoscoderr@gmail.com</a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
