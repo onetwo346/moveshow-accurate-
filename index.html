@@ -11,7 +11,7 @@
     <div id="entry" class="entry">
         <div class="pulsate">Tap to Create</div>
         <div class="intro-info">
-            <p>Move Show Recreate: Turn your story summaries into scripts, characters, animations, and movies—all with AI magic, right in your browser!</p>
+            <p>Move Show Recreate: Turn your story summaries into fully animated movies or shows—scripts, characters, animation, sound, all in your browser!</p>
         </div>
     </div>
 
@@ -19,31 +19,50 @@
     <div id="main" class="main hidden">
         <div class="cosmic-bg"></div>
 
-        <!-- Creation Area -->
-        <div class="creation-area">
+        <!-- Full Feature Area -->
+        <div class="feature-area">
             <h1>Move Show Recreate</h1>
-            <textarea id="summary-input" placeholder="Enter your narrative summary..."></textarea>
-            <div class="buttons">
-                <button id="generate-btn">Generate</button>
-                <button id="search-btn">Search</button>
+            
+            <!-- Search/Generate -->
+            <div class="input-section">
+                <textarea id="summary-input" placeholder="Enter your narrative summary or search term..."></textarea>
+                <div class="buttons">
+                    <button id="search-btn">Search</button>
+                    <button id="generate-btn">Generate Movie/Show</button>
+                </div>
             </div>
+
+            <!-- Output Sections -->
             <div id="output" class="output hidden">
-                <div id="script-output"></div>
-                <div id="character-output"></div>
-                <div id="animation-output">
+                <div class="output-block">
+                    <h2>Script</h2>
+                    <div id="script-output"></div>
+                </div>
+                <div class="output-block">
+                    <h2>Characters</h2>
+                    <div id="character-output"></div>
+                </div>
+                <div class="output-block">
+                    <h2>Animation</h2>
                     <canvas id="animation-canvas" width="320" height="180"></canvas>
                 </div>
-                <div id="sound-output"></div>
-                <button id="export-btn">Export Video</button>
+                <div class="output-block">
+                    <h2>Sound</h2>
+                    <div id="sound-output"></div>
+                </div>
+                <div class="output-block">
+                    <h2>Final Production</h2>
+                    <button id="export-btn">Export Video</button>
+                </div>
             </div>
         </div>
 
-        <!-- Chatbot (Side) -->
+        <!-- Chatbot (Side Assist) -->
         <div id="chatbot" class="chatbot">
             <div class="chatbot-orb">Tap Me</div>
             <div id="chatbot-box" class="chatbot-box hidden">
-                <p id="chatbot-text">I’m the soul of Move Show Recreate! Ask me anything about the site.</p>
-                <textarea id="chatbot-input" placeholder="Ask me..."></textarea>
+                <p id="chatbot-text">I’m here to help! Ask me anything about Move Show Recreate.</p>
+                <textarea id="chatbot-input" placeholder="Ask about the site..."></textarea>
                 <button id="chatbot-ask">Ask</button>
             </div>
         </div>
