@@ -4,7 +4,7 @@ body {
     background: #0a0a23;
     color: #fff;
     overflow-x: hidden;
-    -webkit-tap-highlight-color: transparent; /* iPhone tap fix */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .hidden { display: none; }
@@ -24,7 +24,7 @@ body {
 }
 
 .pulsate {
-    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive */
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     color: #fff;
     text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
     animation: pulse 1.5s infinite;
@@ -48,12 +48,15 @@ body {
     50% { transform: scale(1.05); }
 }
 
-/* Main Screen */
+/* Main Page */
 .main {
     min-height: 100vh;
     position: relative;
     padding: 20px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .cosmic-bg {
@@ -73,19 +76,83 @@ body {
     100% { background-position: 500px 500px; }
 }
 
-/* Chatbot */
+/* Creation Area */
+.creation-area {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.creation-area h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    text-shadow: 0 0 10px #ff00ff;
+    margin-bottom: 20px;
+}
+
+#summary-input {
+    width: 100%;
+    height: 100px;
+    background: #1e1e5f;
+    color: #fff;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#generate-btn, #search-btn {
+    background: #ff00ff;
+    border: 1px solid #00ffff;
+    padding: 8px 15px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.output {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#animation-canvas {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border: 1px solid #00ffff;
+    margin: 10px auto;
+    display: block;
+}
+
+#export-btn {
+    background: #00ffff;
+    color: #0a0a23;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* Chatbot (Side) */
 .chatbot {
     position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 20%;
+    right: 20px;
     text-align: center;
     z-index: 1;
 }
 
 .chatbot-orb {
-    width: clamp(60px, 15vw, 80px);
-    height: clamp(60px, 15vw, 80px);
+    width: clamp(60px, 10vw, 80px);
+    height: clamp(60px, 10vw, 80px);
     background: radial-gradient(circle, #ff00ff, #00ffff);
     border-radius: 50%;
     display: flex;
@@ -101,70 +168,31 @@ body {
     padding: 15px;
     border-radius: 10px;
     margin-top: 15px;
-    width: 90%;
-    max-width: 400px;
+    width: clamp(200px, 30vw, 300px);
     box-shadow: 0 0 20px #ff00ff;
 }
 
-#summary-input {
+#chatbot-input {
     width: 100%;
-    height: 80px;
-    margin: 10px 0;
+    height: 60px;
     background: #1e1e5f;
     color: #fff;
     border: 1px solid #00ffff;
     border-radius: 5px;
-    box-sizing: border-box;
+    margin: 10px 0;
 }
 
-#generate-btn, #search-btn {
+#chatbot-ask {
     background: #ff00ff;
     border: 1px solid #00ffff;
     padding: 8px 15px;
     color: #fff;
-    margin: 5px;
-    cursor: pointer;
-}
-
-#chatbot-close {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: none;
-    border: none;
-    color: #ff00ff;
-    font-size: 1.2rem;
     cursor: pointer;
 }
 
 @keyframes orbPulse {
     0%, 100% { box-shadow: 0 0 15px #ff00ff; }
     50% { box-shadow: 0 0 25px #00ffff; }
-}
-
-/* Output */
-.output {
-    margin: 150px auto 0;
-    max-width: 90%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-}
-
-#animation-canvas {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    border: 1px solid #00ffff;
-}
-
-#export-btn {
-    background: #00ffff;
-    color: #0a0a23;
-    padding: 10px 20px;
-    border: none;
-    margin-top: 10px;
-    cursor: pointer;
 }
 
 /* Donation */
@@ -176,15 +204,12 @@ body {
 }
 
 .donation-pic {
-    width: clamp(40px, 10vw, 60px);
+    width: clamp(40px, 8vw, 60px);
     border-radius: 50%;
     border: 2px solid #00ffff;
 }
 
-.donation a {
-    color: #ff00ff;
-    text-decoration: none;
-}
+.donation a { color: #ff00ff; text-decoration: none; }
 
 /* Footer */
 footer {
@@ -200,13 +225,13 @@ footer a { color: #ff00ff; }
 
 /* Device Compatibility */
 @media (max-width: 768px) {
-    .entry { padding: 10px; }
-    .chatbot { top: 5%; }
-    .output { margin-top: 120px; }
+    .creation-area { margin-top: 10px; }
+    .chatbot { top: 10%; right: 10px; }
     .donation { bottom: 60px; right: 10px; }
 }
 
 @media (max-width: 480px) {
-    #summary-input { height: 60px; }
-    #generate-btn, #search-btn { padding: 6px 10px; }
+    #summary-input { height: 80px; }
+    .buttons { flex-direction: column; gap: 5px; }
+    .chatbot-box { width: 90%; }
 }
